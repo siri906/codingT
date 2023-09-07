@@ -1,0 +1,86 @@
+@charset "utf-8";
+// 확장자는 생략 가능 @import "_variables.scss"
+// 여러 개의 파일을 한번에 임포트
+@import '_variables';
+
+// body{
+//     overflow-y:hidden; //컨텐츠 영역 스크롤
+// }
+
+/* 공통으로 사용될 코드 */
+button,
+button:focus,
+button:active {
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+button span,
+button i {
+  position: relative;
+}
+
+.hide {
+  display: none !important;
+}
+.disabled {
+  cursor: default !important;
+}
+
+.swiper-button-prev:focus,
+.swiper-button-prev:active,
+.swiper-button-next:focus,
+.swiper-button-next:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#wrap {
+  width: 100%;
+  height: 100%;
+  font-family: $pre;
+}
+
+// #wrap {
+// }
+
+input[type='text']::-webkit-input-placeholder {
+  color: #aaa;
+}
+input[type='text']:-moz-placeholder {
+  color: #aaa;
+}
+input[type='text']:-ms-input-placeholder {
+  color: #aaa;
+}
+input[type='text']:-webkit-input-placeholder {
+  color: #aaa;
+}
+input[type='text']::-moz-placeholder {
+  color: #aaa;
+}
+
+// 이미지 링크
+// https://cdn.df.nexon.com/img/char_info/bg/bg01_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg02_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg03_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg04_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg05_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg06_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg07_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg08_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg09_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg10_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg11_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg12_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg13_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg14_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg40_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg31_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg32_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg33_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg34_3.jpg
+// https://cdn.df.nexon.com/img/char_info/bg/bg35_3.jpg

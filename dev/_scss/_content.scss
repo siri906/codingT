@@ -1,0 +1,30 @@
+.list_char {
+  li {
+    &.first {
+      display: flex;
+      background: url('https://cdn.df.nexon.com/img/char_info/bg/bg01_3.jpg');
+      background-position: -600px 17%;
+      padding-right: 1000px;
+      padding-right: vw_2(1000px);
+      img {
+        width: 100%;
+      }
+      .info {
+        color: #fff;
+      }
+    }
+    // &.second {
+    //   display: flex;
+    //   .img {
+    //     width: 300px;
+    //     img {
+    //       position: relative;
+    //       top: 0;
+    //       left: 0;
+    //       width: 100%;
+    //       object-fit: none;
+    //     }
+    //   }
+    // }
+  }
+}
