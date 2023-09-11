@@ -21,21 +21,6 @@ button i {
   position: relative;
 }
 
-.hide {
-  display: none !important;
-}
-.disabled {
-  cursor: default !important;
-}
-
-.swiper-button-prev:focus,
-.swiper-button-prev:active,
-.swiper-button-next:focus,
-.swiper-button-next:active {
-  outline: none !important;
-  -webkit-tap-highlight-color: transparent;
-}
-
 html,
 body,
 #wrap {
@@ -44,6 +29,10 @@ body,
   font-family: $pre;
 }
 
+body {
+  position: relative;
+  // overflow-x: hidden;
+}
 // #wrap {
 // }
 
@@ -64,23 +53,34 @@ input[type='text']::-moz-placeholder {
 }
 
 // 이미지 링크
-// https://cdn.df.nexon.com/img/char_info/bg/bg01_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg02_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg03_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg04_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg05_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg06_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg07_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg08_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg09_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg10_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg11_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg12_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg13_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg14_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg40_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg31_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg32_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg33_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg34_3.jpg
-// https://cdn.df.nexon.com/img/char_info/bg/bg35_3.jpg
+// 남귀검 0
+
+$bg_01: url('https://cdn.df.nexon.com/img/char_info/bg/bg01_3.jpg');
+$bg_02: url('https://cdn.df.nexon.com/img/char_info/bg/bg02_3.jpg');
+$bg_03: url('https://cdn.df.nexon.com/img/char_info/bg/bg03_3.jpg');
+$bg_04: url('https://cdn.df.nexon.com/img/char_info/bg/bg04_3.jpg');
+$bg_05: url('https://cdn.df.nexon.com/img/char_info/bg/bg05_3.jpg');
+$bKnight-images: $bg_01, $bg_02, $bg_03, $bg_04, $bg_05;
+// 여귀검 1
+$bg_06: url('https://cdn.df.nexon.com/img/char_info/bg/bg06_3.jpg');
+$bg_07: url('https://cdn.df.nexon.com/img/char_info/bg/bg07_3.jpg');
+$bg_08: url('https://cdn.df.nexon.com/img/char_info/bg/bg08_3.jpg');
+$bg_09: url('https://cdn.df.nexon.com/img/char_info/bg/bg09_3.jpg');
+$bg_10: url('https://cdn.df.nexon.com/img/char_info/bg/bg62_3.jpg');
+$gKnight-images: $bg_06, $bg_07, $bg_08, $bg_09, $bg_10;
+// 남격가 2
+$bg_11: url('https://cdn.df.nexon.com/img/char_info/bg/bg10_3.jpg');
+$bg_12: url('https://cdn.df.nexon.com/img/char_info/bg/bg11_3.jpg');
+$bg_13: url('https://cdn.df.nexon.com/img/char_info/bg/bg12_3.jpg');
+$bg_14: url('https://cdn.df.nexon.com/img/char_info/bg/bg13_3.jpg');
+$bfighter-images: $bg_11, $bg_12, $bg_13, $bg_14;
+// 여프리 4
+$bg_15: url('https://cdn.df.nexon.com/img/char_info/bg/bg40_3.jpg');
+$gpriest-images: $bg_15;
+// 여법사 5
+$bg_16: url('https://cdn.df.nexon.com/img/char_info/bg/bg31_3.jpg');
+$bg_17: url('https://cdn.df.nexon.com/img/char_info/bg/bg32_3.jpg');
+$bg_18: url('https://cdn.df.nexon.com/img/char_info/bg/bg33_3.jpg');
+$bg_19: url('https://cdn.df.nexon.com/img/char_info/bg/bg34_3.jpg');
+$bg_20: url('https://cdn.df.nexon.com/img/char_info/bg/bg35_3.jpg');
+$gwizard-images: $bg_16, $bg_17, $bg_18, $bg_19, $bg_20;
