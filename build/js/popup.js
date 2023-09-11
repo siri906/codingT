@@ -26,7 +26,7 @@ document.getElementById('prev').onclick = function () {
 // var checkOn = document.querySelector('.content_area .thm_wrap');
 
 // if (checkOn.classList.contains('on')) {
-//   checkOn.addEventListener('wheel', sliderMouseEvent);
+// document.addEventListener('wheel', sliderMouseEvent);
 // }
 
 // nav fn
@@ -47,6 +47,7 @@ dim.addEventListener('click', function () {
   setTimeout(function () {
     popWrap1.classList.remove('on');
     popWrap.classList.remove('on');
+    body.classList.remove('on');
   }, 1000);
 });
 

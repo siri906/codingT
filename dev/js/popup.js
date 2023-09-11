@@ -9,24 +9,24 @@ document.getElementById('prev').onclick = function () {
   document.querySelector('.popup_wrap .slide.on').prepend(lists[lists.length - 1]);
 };
 // 마우스 휠
-// function sliderMouseEvent(event) {
-//   const scollY = Math.sign(event.deltaY);
+function sliderMouseEvent(event) {
+  const scollY = Math.sign(event.deltaY);
 
-//   if (scollY > 0) {
-//     let lists = document.querySelectorAll('.popup_wrap .slide.on .item');
-//     document.querySelector('.popup_wrap .slide.on').appendChild(lists[0]);
-//   } else if (scollY < 0) {
-//     let lists = document.querySelectorAll('.popup_wrap .slide.on .item');
-//     document.querySelector('.popup_wrap .slide.on').prepend(lists[lists.length - 1]);
-//   }
-// }
+  if (scollY > 0) {
+    let lists = document.querySelectorAll('.popup_wrap .slide.on .item');
+    document.querySelector('.popup_wrap .slide.on').appendChild(lists[0]);
+  } else if (scollY < 0) {
+    let lists = document.querySelectorAll('.popup_wrap .slide.on .item');
+    document.querySelector('.popup_wrap .slide.on').prepend(lists[lists.length - 1]);
+  }
+}
 
 // 마우스 휠 이벤트 리스너 등록
 
 // var checkOn = document.querySelector('.content_area .thm_wrap');
 
 // if (checkOn.classList.contains('on')) {
-//   checkOn.addEventListener('wheel', sliderMouseEvent);
+document.addEventListener('wheel', sliderMouseEvent);
 // }
 
 // nav fn
@@ -47,6 +47,7 @@ dim.addEventListener('click', function () {
   setTimeout(function () {
     popWrap1.classList.remove('on');
     popWrap.classList.remove('on');
+    body.classList.remove('on');
   }, 1000);
 });
 

@@ -103,6 +103,7 @@ const navlist = document.querySelector('.navigation .list_job');
 const titleName = document.querySelector('.title_job');
 const listItems = document.querySelectorAll('.list_job li');
 const slide = document.querySelector('.popup_wrap .slide');
+const body = document.querySelector('body');
 
 navlist.addEventListener('click', function (event) {
   event.preventDefault();
@@ -163,11 +164,14 @@ const popupSet = (iNum) => {
   const defaultNum = 0;
   const processedNum = iNum || defaultNum;
   const slides = document.querySelectorAll('.popup_wrap .slide');
+
   slides.forEach((item, index) => {
     if (index === processedNum) {
       item.classList.add('on');
+      body.classList.add('on');
     } else {
       item.classList.remove('on');
+      body.classList.add('on');
     }
   });
 

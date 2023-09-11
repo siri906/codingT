@@ -16,7 +16,7 @@ items.forEach((item) => {
   });
 });
 
-//scrollEffect
+// //scrollEffect
 // let boxeslist = document.querySelectorAll('.list_wrap .wrap_char');
 // function scrollTrigger() {
 //   boxeslist.forEach((boxxx) => {

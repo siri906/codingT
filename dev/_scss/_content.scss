@@ -1,7 +1,7 @@
 // list 변경 버튼
 .wrap_change {
   position: absolute;
-  z-index: 10000;
+  z-index: 500;
   .btn_area {
     color: #fff;
   }
@@ -9,6 +9,8 @@
 
 .content_area {
   // 썸네일형 css
+  background: #000;
+  overflow: hidden;
   > div {
     display: none;
   }
@@ -38,7 +40,6 @@
         transition: 0.25s;
         margin: 0 auto;
         justify-content: center;
-        overflow: hidden;
         &.bKnight,
         &.gwizard,
         &.gKnight {
@@ -118,7 +119,7 @@
           align-items: center;
           background-position: 40% 50%;
           cursor: pointer;
-          z-index: 100;
+          z-index: 10;
           &:hover {
             filter: grayscale(0) brightness(1.25);
             &::after {
@@ -259,6 +260,7 @@
         list-style: none;
         display: flex;
         flex-direction: column;
+        visibility: hidden;
         li {
           position: relative;
           list-style: none;
@@ -267,6 +269,7 @@
           transition: 0.5s;
           transition-delay: calc(0.1s * var(--i));
           transform: translateX(-250px);
+          z-index: -1;
           a {
             position: relative;
             text-decoration: none;
@@ -286,10 +289,15 @@
           }
         }
       }
-      &.active ul li {
-        opacity: 1;
+
+      &.active ul {
         visibility: visible;
-        transform: translateX(0px);
+        li {
+          z-index: 10;
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(0px);
+        }
       }
     }
 
@@ -313,7 +321,7 @@
         right: 0;
         bottom: 0;
         background: rgba(0, 0, 0, 0.8);
-        z-index: 100;
+        z-index: 150;
       }
       > .content {
         position: absolute;
@@ -331,7 +339,6 @@
         width: 100%;
         height: 100%;
         box-shadow: 0 30px 50px #333;
-
         @for $i from 1 through length($bKnight-images) {
           .bKnight .num_#{$i} {
             background-image: nth($bKnight-images, $i);
@@ -381,6 +388,9 @@
           }
         }
         &.gpriest {
+          & + .buttons {
+            display: none;
+          }
         }
         &.on {
           display: block;
@@ -447,15 +457,17 @@
       }
       .item .content {
         position: absolute;
-        top: 50%;
-        left: 100px;
+        top: 40%;
+        right: 0;
         width: 300px;
         text-align: left;
-        padding: 0;
+        padding: 20px;
         color: #eee;
         transform: translate(0, -50%);
         display: none;
         font-family: system-ui;
+        box-shadow: 0 30px 50px #333;
+        background: #111;
       }
       .item:nth-child(1) .content {
         display: block;
@@ -491,18 +503,24 @@
         }
       }
       .buttons {
+        display: flex;
         position: absolute;
-        bottom: 30px;
+        bottom: 2%;
+        left: 0;
         z-index: 222222;
         text-align: center;
+        justify-content: flex-end;
         width: 100%;
+        margin-right: 10px;
       }
       .buttons button {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         border: 1px solid #555;
         transition: 0.5s;
+        background: #fff;
+        margin: 0 10px;
       }
       .buttons button:hover {
         background-color: #bac383;
@@ -577,10 +595,10 @@
       }
       .wrap_char {
         display: flex;
-        justify-content: center;
         align-items: center;
         position: relative;
         flex-wrap: wrap;
+        width: 100%;
         .box_char {
           display: flex;
           position: relative;
@@ -951,5 +969,34 @@
   }
   100% {
     transform: scale(1, 1);
+  }
+}
+
+// 미디어쿼리
+@media (max-width: 650px) {
+  .popup_wrap {
+    .popup_open {
+      .container {
+        .item {
+          &:nth-child(1) .content {
+            top: 100%;
+            .des {
+              display: none;
+            }
+          }
+          &:nth-child(2) {
+            left: 20%;
+          }
+        }
+        .buttons {
+          display: inline-block;
+          bottom: 16%;
+          left: 27%;
+          button {
+            margin: 15px 0;
+          }
+        }
+      }
+    }
   }
 }
