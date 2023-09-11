@@ -7,206 +7,464 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
   </head>
   <body>
-    <div class="thm_wrap">
-      <div class="navigation">
-        <div class="link">
-          <a href="" style="color: #fff">목록형 바로가기</a>
-        </div>
-
-        <div class="toggle"><span></span></div>
-        <ul class="list_job">
-          <li style="--i: 0"><a href="#">귀검사(남)</a></li>
-          <li style="--i: 1"><a href="#">귀검사(여)</a></li>
-          <li style="--i: 2"><a href="#">격투가(남)</a></li>
-          <li style="--i: 3"><a href="#">프리스트(여)</a></li>
-          <li style="--i: 4"><a href="#">마법사(여)</a></li>
-        </ul>
-      </div>
-      <div class="wrap_visual">
-        <h2 class="title_job">귀검사(남)</h2>
-        <div class="container bKnight">
-          <div class="box num_1" style="--img: url(https://cdn.df.nexon.com/img/char_info/bg/bg01_3.jpg)" data-text="웨폰마스터"></div>
-          <div class="box num_2" style="--img: url(https://cdn.df.nexon.com/img/char_info/bg/bg02_3.jpg)" data-text="Spider Man"></div>
-          <div class="box num_3" style="--img: url(https://cdn.df.nexon.com/img/char_info/bg/bg03_3.jpg)" data-text="Iron Man"></div>
-          <div class="box num_4" style="--img: url(https://cdn.df.nexon.com/img/char_info/bg/bg04_3.jpg)" data-text="Balck Widow"></div>
-          <div class="box num_5" style="--img: url(https://cdn.df.nexon.com/img/char_info/bg/bg05_3.jpg)" data-text="Captain America"></div>
-        </div>
-      </div>
-      <div class="popup_wrap">
-        <div class="dim"></div>
-        <div class="content">
-          <div class="container">
-            <div class="slide bKnight">
-              <div class="item num_1">
-                <div class="content">
-                  <div class="name">LUNDEV</div>
-                  <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
-                  <button>See more</button>
-                </div>
-              </div>
-              <div class="item num_2">
-                <div class="content">
-                  <div class="name">LUNDEV</div>
-                  <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
-                  <button>See more</button>
-                </div>
-              </div>
-              <div class="item num_3">
-                <div class="content">
-                  <div class="name">LUNDEV</div>
-                  <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
-                  <button>See more</button>
-                </div>
-              </div>
-              <div class="item num_4">
-                <div class="content">
-                  <div class="name">LUNDEV</div>
-                  <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
-                  <button>See more</button>
-                </div>
-              </div>
-              <div class="item num_5">
-                <div class="content">
-                  <div class="name">LUNDEV</div>
-                  <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
-                  <button>See more</button>
-                </div>
-              </div>
-            </div>
-            <div class="buttons">
-              <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
-              <button id="next"><i class="fa-solid fa-angle-right"></i></button>
-            </div>
-          </div>
-        </div>
+    <div class="wrap_change">
+      <div class="btn_area">
+        <button onclick="toggleItems()">변경</button>
       </div>
     </div>
-    <div class="list_wrap">
-      <section class="wrap_title">
-        <h2>dnfList</h2>
-      </section>
-      <section class="main">
-        <div class="btn_refresh">
-          <a href="javascript" class="refresh" style="color: #fff">초기화</a>
+    <div class="content_area">
+      <div class="thm_wrap">
+        <div class="navigation">
+          <div class="toggle"><span></span></div>
+          <ul class="list_job">
+            <li style="--i: 0"><a href="#">귀검사(남)</a></li>
+            <li style="--i: 1"><a href="#">귀검사(여)</a></li>
+            <li style="--i: 2"><a href="#">격투가(남)</a></li>
+            <li style="--i: 3"><a href="#">프리스트(여)</a></li>
+            <li style="--i: 4"><a href="#">마법사(여)</a></li>
+          </ul>
         </div>
-        <div class="wrap_char del_d delt_m per">
-          <div class="area_top">
-            <ul class="list_job_option">
-              <li class="del_d"><a href="#">딜</a></li>
-              <li class="delt_m"><a href="#">매직</a></li>
-              <li class="per"><a href="#">퍼센트</a></li>
-            </ul>
-            <h3 class="name">스트리트파이터(남)</h3>
-          </div>
-          <div class="item">
-            <div class="img_wrap"></div>
-          </div>
-        </div>
-        <div class="wrap_char del_d delt_p fix">
-          <div class="area_top">
-            <ul class="list_job_option">
-              <li class="del_d"><a href="#">딜</a></li>
-              <li class="delt_p"><a href="#">딜</a></li>
-              <li class="fix"><a href="#">픽스</a></li>
-            </ul>
-            <h3 class="name">스위프트 마스터</h3>
-          </div>
-          <div class="item">
-            <div class="img_wrap"></div>
+        <div class="wrap_visual">
+          <h2 class="title_job">귀검사(남)</h2>
+          <div class="container bKnight">
+            <div class="box num_1" style="--img: url(https://cdn.df.nexon.com/img/char_info/bg/bg01_3.jpg)" data-text="웨폰마스터"></div>
+            <div class="box num_2" style="--img: url(https://cdn.df.nexon.com/img/char_info/bg/bg02_3.jpg)" data-text="Spider Man"></div>
+            <div class="box num_3" style="--img: url(https://cdn.df.nexon.com/img/char_info/bg/bg03_3.jpg)" data-text="Iron Man"></div>
+            <div class="box num_4" style="--img: url(https://cdn.df.nexon.com/img/char_info/bg/bg04_3.jpg)" data-text="Balck Widow"></div>
+            <div class="box num_5" style="--img: url(https://cdn.df.nexon.com/img/char_info/bg/bg05_3.jpg)" data-text="Captain America"></div>
           </div>
         </div>
-        <div class="wrap_char del_b delt_p fix">
-          <div class="area_top">
-            <ul class="list_job_option">
-              <li class="del_b"><a href="#">버퍼</a></li>
-              <li class="delt_p"><a href="#">딜</a></li>
-              <li class="fix"><a href="#">픽스</a></li>
-            </ul>
-            <h3 class="name">드래고니안 랜서</h3>
-          </div>
-          <div class="item">
-            <div class="img_wrap"></div>
+        <div class="popup_wrap">
+          <div class="dim"></div>
+          <div class="content">
+            <div class="container">
+              <div class="slide bKnight">
+                <div class="item num_1">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_2">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_3">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_4">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_5">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="slide gKnight">
+                <div class="item num_1">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_2">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_3">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_4">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_5">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="slide bfighter">
+                <div class="item num_1">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_2">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_3">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_4">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="slide gpriest">
+                <div class="item num_1">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="slide gwizard">
+                <div class="item num_1">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_2">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_3">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_4">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+                <div class="item num_5">
+                  <div class="content">
+                    <div class="name">LUNDEV</div>
+                    <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                    <button>See more</button>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
+                <button id="next"><i class="fa-solid fa-angle-right"></i></button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="wrap_char del_b delt_p fix">
-          <div class="area_top">
-            <ul class="list_job_option">
-              <li><a href="#">D</a></li>
-              <li><a href="#">M</a></li>
-              <li><a href="#">P</a></li>
-            </ul>
-            <h3 class="name">웨폰마스터</h3>
+      </div>
+      <div class="list_wrap on">
+        <section class="main">
+          <div class="btn_refresh">
+            <a href="javascript:void(0);" class="refresh" style="color: #fff">전체re</a>
           </div>
-          <div class="item">
-            <div class="img_wrap"></div>
+          <div class="wrap_char">
+            <div class="box_char del_d delt_p dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">웨펀마스터</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_m dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">소울브링어</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_m"><a href="#">M</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_fix">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">버서커</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_fix"><a href="#">F</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_m dem_fix">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">아수라</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_m"><a href="#">M</a></li>
+                  <li class="dem_fix"><a href="#">F</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">검귀</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">소드마스터</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">데몬슬레이어</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">베가본드</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_m dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">다크템플러</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_m"><a href="#">M</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">블레이드</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_m dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">넨마스터(남)</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_m"><a href="#">M</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">스트라이커(남)</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">스트리트파이터(남)</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">그래플러(남)</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_b delt_m dem_fix">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">크루세이더(여)</h3>
+                <ul class="list_job_option">
+                  <li class="del_b"><a href="#">B</a></li>
+                  <li class="delt_m"><a href="#">P</a></li>
+                  <li class="dem_fix"><a href="#">F</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_m dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">엘레멘탈마스터</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_m"><a href="#">M</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_m dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">소환사</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_m"><a href="#">M</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_per">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">배틀메이지</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_p"><a href="#">P</a></li>
+                  <li class="dem_per"><a href="#">P</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_m dem_fix">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">마도학자</h3>
+                <ul class="list_job_option">
+                  <li class="del_d"><a href="#">D</a></li>
+                  <li class="delt_m"><a href="#">M</a></li>
+                  <li class="dem_fix"><a href="#">F</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_char del_d delt_p dem_fix">
+              <div class="item">
+                <div class="img_wrap"></div>
+              </div>
+              <div class="area_info">
+                <h3 class="name">인챈트리스</h3>
+                <ul class="list_job_option">
+                  <li class="del_b"><a href="#">B</a></li>
+                  <li class="delt_m"><a href="#">P</a></li>
+                  <li class="dem_fix"><a href="#">F</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="wrap_char del_b delt_p fix">
-          <div class="area_top">
-            <ul class="list_job_option">
-              <li><a href="#">D</a></li>
-              <li><a href="#">M</a></li>
-              <li><a href="#">P</a></li>
-            </ul>
-            <h3 class="name">웨폰마스터</h3>
-          </div>
-          <div class="item">
-            <div class="img_wrap"></div>
-          </div>
-        </div>
-        <div class="wrap_char del_d delt_m fix">
-          <div class="area_top">
-            <ul class="list_job_option">
-              <li><a href="#">D</a></li>
-              <li><a href="#">M</a></li>
-              <li><a href="#">P</a></li>
-            </ul>
-            <h3 class="name">웨폰마스터</h3>
-          </div>
-          <div class="item">
-            <div class="img_wrap"></div>
-          </div>
-        </div>
-        <div class="wrap_char del_d delt_m per">
-          <div class="area_top">
-            <ul class="list_job_option">
-              <li><a href="#">D</a></li>
-              <li><a href="#">M</a></li>
-              <li><a href="#">P</a></li>
-            </ul>
-            <h3 class="name">웨폰마스터</h3>
-          </div>
-          <div class="item">
-            <div class="img_wrap"></div>
-          </div>
-        </div>
-        <div class="wrap_char del_d delt_m per">
-          <div class="area_top">
-            <ul class="list_job_option">
-              <li><a href="#">D</a></li>
-              <li><a href="#">M</a></li>
-              <li><a href="#">P</a></li>
-            </ul>
-            <h3 class="name">웨폰마스터</h3>
-          </div>
-          <div class="item">
-            <div class="img_wrap"></div>
-          </div>
-        </div>
-        <div class="wrap_char del_d delt_m per">
-          <div class="area_top">
-            <ul class="list_job_option">
-              <li><a href="#">D</a></li>
-              <li><a href="#">M</a></li>
-              <li><a href="#">P</a></li>
-            </ul>
-            <h3 class="name">웨폰마스터</h3>
-          </div>
-          <div class="item">
-            <div class="img_wrap"></div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
     <script src="../js/ui.js"></script>
     <script src="../js/popup.js"></script>

@@ -56,7 +56,7 @@ const bgItem = [
     },
     {
       img: "url('https://cdn.df.nexon.com/img/char_info/bg/bg12_3.jpg')",
-      text: '스트라이커(남)',
+      text: '스트리트파이터(남)',
     },
     {
       img: "url('https://cdn.df.nexon.com/img/char_info/bg/bg13_3.jpg')",
@@ -104,34 +104,27 @@ const titleName = document.querySelector('.title_job');
 const listItems = document.querySelectorAll('.list_job li');
 const slide = document.querySelector('.popup_wrap .slide');
 
-navlist.onclick = function (event) {
+navlist.addEventListener('click', function (event) {
   event.preventDefault();
+
   let clickTitle = event.target.innerHTML;
   const targerStyle = window.getComputedStyle(event.target);
   const iNum = parseInt(targerStyle.getPropertyValue('--i'));
+
   titleName.innerHTML = clickTitle;
-  document.querySelector('.toggle').classList.remove('active');
+  document.querySelector('.navigation .toggle').classList.remove('active');
   navigation.classList.remove('active');
 
-  // 클릭 i넘버 가져오기
-  imgChangeAni();
+  // 팝업세팅 변경 fn
+  popupSet(iNum);
+
+  // 이미지 변경 fn
   changeImg(iNum);
-  // slide.innerHTML = '';
-  // popupSet(bgItem[iNum].length);
-};
+  // animation fn
+  navClickAni();
+});
 
-const imgChangeAni = () => {
-  const container = document.querySelector('.wrap_visual .container');
-
-  navlist.addEventListener('click', (event) => {
-    event.preventDefault();
-    container.classList.add('close_open');
-    setTimeout(() => {
-      container.classList.remove('close_open');
-    }, 700);
-  });
-};
-
+// 썸네일 이미지 재배치 (html 재생성)
 const changeImg = (iNum) => {
   const defaultItem = 0;
   const processedItem = iNum || defaultItem;
@@ -143,8 +136,6 @@ const changeImg = (iNum) => {
   if (processedItem >= 0 && processedItem < classes.length) {
     container.classList.remove(className);
     container.classList.add(classes[processedItem]);
-    popWrap.classList.remove(className);
-    popWrap.classList.add(classes[processedItem]);
   }
 
   while (container.firstChild) {
@@ -155,15 +146,11 @@ const changeImg = (iNum) => {
     const divItem = document.createElement('div');
     const numClass = `num_${index + 1}`;
     const styleValue = `${item.img}`;
-
     divItem.classList.add(`box`);
     divItem.classList.add(numClass);
     divItem.style.setProperty('--img', styleValue);
     divItem.setAttribute('data-text', item.text);
     container.appendChild(divItem);
-
-    popupSet(itemBgList.length);
-
     divItem.addEventListener('click', () => {
       popWrap1.classList.add('on');
       popCont.classList.add('popup_open');
@@ -171,90 +158,55 @@ const changeImg = (iNum) => {
   });
 };
 
-const popupSet = (itemCount) => {
-  const container = document.querySelector('.wrap_visual .container');
-  const slide = document.querySelector('.popup_wrap .slide');
+// 팝업함수
+const popupSet = (iNum) => {
+  const defaultNum = 0;
+  const processedNum = iNum || defaultNum;
+  const slides = document.querySelectorAll('.popup_wrap .slide');
+  slides.forEach((item, index) => {
+    if (index === processedNum) {
+      item.classList.add('on');
+    } else {
+      item.classList.remove('on');
+    }
+  });
 
-  // itemCount에 따라서 slide에 item 요소 생성
-  for (let i = 1; i <= itemCount; i++) {
-    const itemDiv = document.createElement('div');
-    itemDiv.classList.add('item');
-    itemDiv.classList.add(`num_${i}`);
-
-    slide.appendChild(itemDiv);
-  }
-
+  // 클릭한 item 찾는 함수
   container.addEventListener('click', function (event) {
     if (event.target.classList.contains('box')) {
       const clickedClass = event.target.classList[1];
-      const items = Array.from(slide.getElementsByClassName('item'));
-      const reorderedItems = [];
+      const clickedContainClass = event.target.offsetParent.classList[1];
+      const slide = document.querySelector(`.popup_wrap .${clickedContainClass}`);
 
-      // 해당 클래스를 가지고 있는 아이템을 찾아서 순차적으로 정렬
-      let startIndex;
+      const slideItems = Array.from(slide.querySelectorAll('.item'));
 
-      items.forEach((item, index) => {
-        if (item.classList.contains(clickedClass)) {
-          startIndex = index;
-        }
-        reorderedItems.push(item);
+      const rearrangedItems = [];
+
+      let currentIndex = slideItems.findIndex((item) => item.classList.contains(clickedClass));
+
+      for (let i = 0; i < slideItems.length; i++) {
+        rearrangedItems.push(slideItems[currentIndex]);
+        currentIndex = (currentIndex + 1) % slideItems.length;
+      }
+      // 이전 내용 초기화
+      while (slide.firstChild) {
+        slide.removeChild(slide.firstChild);
+      }
+      // rearrangedItems를 순차적으로 추가
+      rearrangedItems.forEach((item) => {
+        slide.appendChild(item);
       });
-
-      // 순차적으로 정렬된 아이템을 slide에 추가
-      slide.innerHTML = '';
-
-      for (let i = startIndex; i < itemCount; i++) {
-        slide.appendChild(reorderedItems[i]);
-      }
-
-      for (let i = 0; i < startIndex; i++) {
-        slide.appendChild(reorderedItems[i]);
-      }
     }
   });
 };
-// popup html 세팅
-// const popupSet = (itemCount) => {
 
-//   const container = document.querySelector('.wrap_visual .container');
-//   const slide = document.querySelector('.popup_wrap .slide');
-
-//   container.addEventListener('click', function (event) {
-//     if (event.target.classList.contains('box')) {
-//       const clickedClass = event.target.classList[1];
-//       const items = Array.from(slide.getElementsByClassName('item'));
-//       const itemCount = items.length;
-
-//       // 해당 클래스를 가지고 있는 아이템을 찾아서 순차적으로 정렬
-//       const reorderedItems = [];
-//       let startIndex = -1;
-
-//       for (let i = 0; i < itemCount; i++) {
-//         if (items[i].classList.contains(clickedClass)) {
-//           startIndex = i;
-//           break;
-//         }
-//       }
-
-//       if (startIndex !== -1) {
-//         for (let i = startIndex; i < itemCount; i++) {
-//           reorderedItems.push(items[i]);
-//         }
-
-//         for (let i = 0; i < startIndex; i++) {
-//           reorderedItems.push(items[i]);
-//         }
-
-//         // 순차적으로 정렬된 아이템을 slide에 추가
-//         slide.innerHTML = '';
-
-//         reorderedItems.forEach(function (item) {
-//           slide.appendChild(item);
-//         });
-//       }
-//     }
-//   });
-// };
+// ani fn
+const navClickAni = () => {
+  container.classList.add('close_open');
+  setTimeout(() => {
+    container.classList.remove('close_open');
+  }, 700);
+};
 
 // 기본
 containerInBox.forEach((item) => {
@@ -262,35 +214,6 @@ containerInBox.forEach((item) => {
   item.addEventListener('click', () => {
     popWrap1.classList.add('on');
     popCont.classList.add('popup_open');
+    popupSet(0);
   });
-});
-
-// 화면전환
-const link = document.querySelector('.link');
-const thm = document.querySelector('.thm');
-const list = document.querySelector('.list_wrap');
-
-link.addEventListener('click', function (e) {
-  e.preventDefault();
-  if (thm.style.display === 'block') {
-    // 현재 thm이 보여지고 있을 때
-    thm.style.animationName = 'fadeOut';
-    list.style.animationName = 'fadeIn';
-
-    setTimeout(function () {
-      // 애니메이션이 완료된 후에 화면 전환 수행
-      thm.style.display = 'none';
-      list.style.display = 'block';
-    }, parseInt(getComputedStyle(thm).animationDuration) * 1000); // 애니메이션 지속 시간만큼 딜레이 설정
-  } else {
-    // 현재 list가 보여지고 있을 때
-    list.style.animationName = 'fadeOut';
-    thm.style.animationName = 'fadeIn';
-
-    setTimeout(function () {
-      // 애니메이션이 완료된 후에 화면 전환 수행
-      list.style.display = 'none';
-      thm.style.display = 'block';
-    }, parseInt(getComputedStyle(list).animationDuration) * 1000); // 애니메이션 지속 시간만큼 딜레이 설정
-  }
 });

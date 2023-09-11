@@ -17,23 +17,23 @@ items.forEach((item) => {
 });
 
 //scrollEffect
-let boxeslist = document.querySelectorAll('.list_wrap .wrap_char');
-function scrollTrigger() {
-  boxeslist.forEach((boxxx) => {
-    if (boxxx.offsetTop < window.scrollY) {
-      boxxx.classList.add('active');
-    } else {
-      boxxx.classList.remove('active');
-    }
-  });
-}
+// let boxeslist = document.querySelectorAll('.list_wrap .wrap_char');
+// function scrollTrigger() {
+//   boxeslist.forEach((boxxx) => {
+//     if (boxxx.offsetTop < window.scrollY) {
+//       boxxx.classList.add('active');
+//     } else {
+//       boxxx.classList.remove('active');
+//     }
+//   });
+// }
 
-window.addEventListener('scroll', scrollTrigger);
+// window.addEventListener('scroll', scrollTrigger);
 
 // sort
 const listJobOption = document.querySelectorAll('.list_job_option a');
-const wrapElements = document.querySelectorAll('.wrap');
-const refreshLink = document.querySelector('.refresh');
+const wrapElements = document.querySelectorAll('.box_char');
+const refreshLink = document.querySelector('.btn_refresh .refresh');
 
 let clickedClasses = [];
 
@@ -69,16 +69,32 @@ listJobOption.forEach(function (option) {
           wrap.classList.remove('hide');
           wrap.classList.add('show');
           setTimeout(() => {
-            wrap.style.display = 'block';
-          }, 1000); // Wait for animation to finish before setting display
+            wrap.style.display = 'flex';
+          }, 900); // Wait for animation to finish before setting display
         } else {
           wrap.classList.remove('show');
           wrap.classList.add('hide');
           setTimeout(() => {
             wrap.style.display = 'none';
-          }, 1000); // Wait for animation to finish before setting display
+          }, 900); // Wait for animation to finish before setting display
         }
       });
     });
+  });
+});
+
+// refresh동작
+refreshLink.addEventListener('click', function () {
+  const listJobOptionLi = document.querySelectorAll('.list_job_option li');
+  listJobOptionLi.forEach((li) => {
+    li.classList.remove('on');
+  });
+
+  wrapElements.forEach(function (wrap) {
+    wrap.classList.remove('hide');
+    wrap.classList.add('show');
+    setTimeout(() => {
+      wrap.style.display = 'flex';
+    }, 900); // Wait for animation to finish before setting display
   });
 });
