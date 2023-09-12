@@ -221,3 +221,25 @@ containerInBox.forEach((item) => {
     popupSet(0);
   });
 });
+
+// 버튼액션
+const btnActiveShow = document.querySelector('.btn_area .btn_active');
+
+function toggleClick(event) {
+  let clickedBtn = event.target;
+
+  if (clickedBtn.classList.contains('active')) {
+    return false;
+  } else {
+    const btnActive = document.querySelectorAll('.toggle-btn');
+    btnActive.forEach((btn) => {
+      btn.classList.remove('active');
+    });
+    clickedBtn.classList.add('active');
+    let getWhere = clickedBtn.classList[1];
+    btnActiveShow.classList.remove('left');
+    btnActiveShow.classList.remove('right');
+    btnActiveShow.classList.add(getWhere);
+    zipIn();
+  }
+}

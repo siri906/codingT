@@ -1,10 +1,51 @@
 // list 변경 버튼
 .wrap_change {
   position: absolute;
-  z-index: 500;
+  z-index: 100;
+  transition: 0.5s;
+  opacity: 1;
+  visibility: visible;
   .btn_area {
-    color: #fff;
+    display: flex;
+    width: 190px;
+    margin: 10px;
+    position: relative;
+    border-radius: 30px;
+    background: #fff;
+    .btn_active {
+      left: 0;
+      top: 0;
+      position: absolute;
+      width: 100px;
+      height: 100%;
+      background: #e67e22;
+      border-radius: 30px;
+      transition: 0.5s;
+      &.left {
+        left: 0;
+      }
+      &.right {
+        left: 90px;
+      }
+    }
+    .toggle-btn {
+      padding: 5px 30px;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      outline: none;
+      position: relative;
+      text-align: center;
+    }
   }
+  &.hide {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.content_area.zip_in + .wrap_change {
+  opacity: 0;
 }
 
 .content_area {
@@ -125,14 +166,14 @@
             &::after {
               transition-delay: 0.25s;
               opacity: 1;
-              bottom: -60px;
+              bottom: -30px;
             }
           }
           &:nth-child(even) {
-            transform: translateY(70px);
+            transform: translateY(50px);
           }
           &:nth-child(odd) {
-            transform: translateY(-70px);
+            transform: translateY(-50px);
           }
           &::before {
             content: '';
@@ -485,7 +526,7 @@
         animation: showcontent 1s ease-in-out 0.3s 1 forwards;
       }
       .item button {
-        padding: 10px 20px;
+        padding: 10px 0;
         border: none;
         opacity: 0;
         animation: showcontent 1s ease-in-out 0.6s 1 forwards;
@@ -570,16 +611,17 @@
       min-height: 100vh;
     }
     .main {
+      position: relative;
       display: flex;
       padding-top: 300px;
       max-width: 1920px;
       width: 100%;
       margin: 0 auto;
       .btn_refresh {
+        position: fixed;
+        right: 68px;
+        top: 10%;
         a {
-          position: fixed;
-          right: 10%;
-          top: 20%;
           transform: translateY(-50%);
           z-index: 200;
           display: flex;
@@ -596,6 +638,7 @@
       .wrap_char {
         display: flex;
         align-items: center;
+        justify-content: center;
         position: relative;
         flex-wrap: wrap;
         width: 100%;
@@ -657,13 +700,14 @@
                   border-radius: 50%;
                   color: #fff;
                   background: green;
+                  opacity: 0.5;
                   border: 2px solid #fff;
                   font-weight: bold;
                 }
                 &.on {
                   border-radius: 50%;
                   a {
-                    border-color: yellow;
+                    opacity: 1;
                   }
                 }
                 &:nth-child(2) {
@@ -974,24 +1018,40 @@
 
 // 미디어쿼리
 @media (max-width: 650px) {
+  .content_area .thm_wrap .popup_wrap .item .name {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  .content_area .thm_wrap .navigation {
+    max-width: 120px;
+  }
+  .content_area .thm_wrap .navigation .toggle {
+    font-size: 16px;
+  }
+  .content_area .thm_wrap .navigation ul li a {
+    font-size: 14px;
+  }
   .popup_wrap {
     .popup_open {
       .container {
         .item {
           &:nth-child(1) .content {
-            top: 100%;
+            left: 0;
+            right: auto;
+            top: 66%;
             .des {
               display: none;
             }
           }
           &:nth-child(2) {
-            left: 20%;
+            top: 66%;
+            left: 42%;
           }
         }
         .buttons {
           display: inline-block;
-          bottom: 16%;
-          left: 27%;
+          bottom: 0;
+          left: 48%;
           button {
             margin: 15px 0;
           }

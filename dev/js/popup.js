@@ -1,5 +1,5 @@
 // popup arr fn
-document.getElementById('next').onclick = function (event) {
+document.getElementById('next').onclick = function () {
   let lists = document.querySelectorAll('.popup_wrap .slide.on .item');
   document.querySelector('.popup_wrap .slide.on').appendChild(lists[0]);
 };
@@ -8,26 +8,6 @@ document.getElementById('prev').onclick = function () {
   let lists = document.querySelectorAll('.popup_wrap .slide.on .item');
   document.querySelector('.popup_wrap .slide.on').prepend(lists[lists.length - 1]);
 };
-// 마우스 휠
-function sliderMouseEvent(event) {
-  const scollY = Math.sign(event.deltaY);
-
-  if (scollY > 0) {
-    let lists = document.querySelectorAll('.popup_wrap .slide.on .item');
-    document.querySelector('.popup_wrap .slide.on').appendChild(lists[0]);
-  } else if (scollY < 0) {
-    let lists = document.querySelectorAll('.popup_wrap .slide.on .item');
-    document.querySelector('.popup_wrap .slide.on').prepend(lists[lists.length - 1]);
-  }
-}
-
-// 마우스 휠 이벤트 리스너 등록
-
-// var checkOn = document.querySelector('.content_area .thm_wrap');
-
-// if (checkOn.classList.contains('on')) {
-document.addEventListener('wheel', sliderMouseEvent);
-// }
 
 // nav fn
 const navigation = document.querySelector('.navigation');
@@ -51,24 +31,16 @@ dim.addEventListener('click', function () {
   }, 1000);
 });
 
-// button wrapchange
-const switchBtn = document.querySelector('.wrap_change button');
-
-// switchBtn.addEventListener('click', function (event) {
-//   contenArea.classList.add('zip_in');
-//   setTimeout(() => {
-//     contenArea.classList.remove('zip_in');
-//   }, 3200);
-// });
-
 // 화면 토글
-function toggleItems() {
+function zipIn() {
   const items = Array.from(document.querySelectorAll('.content_area > div'));
   const contentArea = document.querySelector('.content_area');
+  const wrapChange = document.querySelector('.wrap_change');
   const currentItemIndex = items.findIndex((item) => item.classList.contains('on'));
   const nextItemIndex = (currentItemIndex + 1) % items.length;
 
   contentArea.classList.add('zip_in');
+  wrapChange.classList.add('hide');
 
   setTimeout(() => {
     items[currentItemIndex].classList.remove('on');
@@ -76,6 +48,7 @@ function toggleItems() {
   }, 2000);
 
   setTimeout(() => {
+    wrapChange.classList.remove('hide');
     contentArea.classList.remove('zip_in');
   }, 4000);
 }
