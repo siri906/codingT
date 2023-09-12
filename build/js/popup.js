@@ -18,7 +18,23 @@ document.querySelector('.toggle').onclick = function () {
 
 // popup Dim
 const dim = document.querySelector('.popup_wrap .dim');
+const popup_close_btn = document.querySelector('.popup_wrap .popup_close_btn button');
 dim.addEventListener('click', function () {
+  popCont.classList.remove('popup_open');
+  popCont.classList.add('popup_close');
+  setTimeout(() => {
+    popCont.classList.remove('popup_close');
+  }, 1000);
+  setTimeout(function () {
+    popWrap1.classList.remove('on');
+    popWrap.classList.remove('on');
+    body.classList.remove('on');
+  }, 1000);
+});
+
+popup_close_btn.addEventListener('click', function (event) {
+  event.preventDefault();
+  console.log('test');
   popCont.classList.remove('popup_open');
   popCont.classList.add('popup_close');
   setTimeout(() => {

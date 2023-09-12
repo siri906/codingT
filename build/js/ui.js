@@ -16,20 +16,6 @@ items.forEach((item) => {
   });
 });
 
-// //scrollEffect
-// let boxeslist = document.querySelectorAll('.list_wrap .wrap_char');
-// function scrollTrigger() {
-//   boxeslist.forEach((boxxx) => {
-//     if (boxxx.offsetTop < window.scrollY) {
-//       boxxx.classList.add('active');
-//     } else {
-//       boxxx.classList.remove('active');
-//     }
-//   });
-// }
-
-// window.addEventListener('scroll', scrollTrigger);
-
 // sort
 const listJobOption = document.querySelectorAll('.list_job_option a');
 const wrapElements = document.querySelectorAll('.box_char');
@@ -47,44 +33,42 @@ listJobOption.forEach(function (option) {
     // If the class is already in the array, remove it
     if (clickedClasses.includes(clickedLiClass)) {
       clickedClasses = clickedClasses.filter((className) => className !== clickedLiClass);
-      requestAnimationFrame(() => {
-        // Use requestAnimationFrame to delay removing classes until next repaint
-        document.querySelectorAll('.list_job_option .' + clickedLiClass).forEach((li) => li.classList.remove('on'));
-      });
+
+      // Use requestAnimationFrame to delay removing classes until next repaint
+      document.querySelectorAll('.list_job_option .' + clickedLiClass).forEach((li) => li.classList.remove('on'));
     } else {
-      // Otherwise add it to the array
       clickedClasses.push(clickedLiClass);
-      requestAnimationFrame(() => {
-        // Use requestAnimationFrame to delay adding classes until next repaint
-        document.querySelectorAll('.list_job_option .' + clickedLiClass).forEach((li) => li.classList.add('on'));
-      });
+
+      document.querySelectorAll('.list_job_option .' + clickedLiClass).forEach((li) => li.classList.add('on'));
     }
 
     wrapElements.forEach(function (wrap) {
       const hasAllClickedClasses = clickedClasses.every((className) => wrap.classList.contains(className));
 
-      requestAnimationFrame(() => {
-        // Use requestAnimationFrame to delay adding/removing classes until next repaint
-        if (hasAllClickedClasses) {
-          wrap.classList.remove('hide');
-          wrap.classList.add('show');
-          setTimeout(() => {
-            wrap.style.display = 'flex';
-          }, 900); // Wait for animation to finish before setting display
-        } else {
-          wrap.classList.remove('show');
-          wrap.classList.add('hide');
-          setTimeout(() => {
-            wrap.style.display = 'none';
-          }, 900); // Wait for animation to finish before setting display
-        }
-      });
+      // Use requestAnimationFrame to delay adding/removing classes until next repaint
+      if (hasAllClickedClasses) {
+        wrap.classList.remove('hide');
+        wrap.classList.add('show');
+        setTimeout(() => {
+          wrap.style.display = 'flex';
+        }, 500); // Wait for animation to finish before setting display
+      } else {
+        wrap.classList.remove('show');
+        wrap.classList.add('hide');
+        setTimeout(() => {
+          wrap.style.display = 'none';
+        }, 500); // Wait for animation to finish before setting display
+      }
     });
   });
 });
 
 // refresh동작
 refreshLink.addEventListener('click', function () {
+  refreshList();
+});
+
+const refreshList = () => {
   const listJobOptionLi = document.querySelectorAll('.list_job_option li');
   listJobOptionLi.forEach((li) => {
     li.classList.remove('on');
@@ -95,6 +79,6 @@ refreshLink.addEventListener('click', function () {
     wrap.classList.add('show');
     setTimeout(() => {
       wrap.style.display = 'flex';
-    }, 900); // Wait for animation to finish before setting display
+    }, 900);
   });
-});
+};

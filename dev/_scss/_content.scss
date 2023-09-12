@@ -368,12 +368,24 @@
         position: absolute;
         max-width: 1280px;
         height: 70vh;
-        // width: 100%;
         top: 18%;
         left: 50%;
         transform: translate(-50%);
         z-index: 1000;
         transition: 0.5s;
+        > .popup_close_btn button {
+          display: flex;
+          width: 50px;
+          height: 50px;
+          background: #fff;
+          border-radius: 50%;
+          z-index: 200;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          justify-content: center;
+          align-items: center;
+        }
       }
       .container {
         position: relative;
@@ -613,14 +625,13 @@
     .main {
       position: relative;
       display: flex;
+      flex-direction: column;
       padding-top: 300px;
       max-width: 1920px;
       width: 100%;
       margin: 0 auto;
       .btn_refresh {
-        position: fixed;
-        right: 68px;
-        top: 10%;
+        margin: 0 auto;
         a {
           transform: translateY(-50%);
           z-index: 200;
@@ -656,22 +667,6 @@
           transform: perspective(100rem);
           transform-origin: center;
           transition: all 0.5s ease-in-out;
-
-          // &:nth-child(4n + 1) {
-          //   transform: translate(-480px, 0) scale(0);
-          // }
-          // &:nth-child(4n + 2) {
-          //   transform: translate(0, 0) scale(0);
-          // }
-          // &:nth-child(4n + 3) {
-          //   transform: translate(480px, 0) scale(0);
-          // }
-          // &:nth-child(4n + 3) {
-          //   transform: translate(880px, 0) scale(0);
-          // }
-          // &:nth-child(4n + 4) {
-          //   transform: translate(1920px, 0) scale(0);
-          // }
           &.active {
             transform: translate(0, 0) scale(1);
           }
@@ -953,12 +948,12 @@
 
           &.hide {
             animation-name: listClose;
-            animation-duration: 1s;
+            animation-duration: 0.5s;
             animation-fill-mode: forwards;
           }
           &.show {
             animation-name: listOpen;
-            animation-duration: 1s;
+            animation-duration: 0.5s;
             animation-fill-mode: forwards;
           }
         }

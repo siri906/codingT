@@ -224,7 +224,6 @@ containerInBox.forEach((item) => {
 
 // 버튼액션
 const btnActiveShow = document.querySelector('.btn_area .btn_active');
-
 function toggleClick(event) {
   let clickedBtn = event.target;
 
@@ -240,6 +239,7 @@ function toggleClick(event) {
     btnActiveShow.classList.remove('left');
     btnActiveShow.classList.remove('right');
     btnActiveShow.classList.add(getWhere);
+    refreshList();
     zipIn();
   }
 }
